@@ -24,7 +24,7 @@ function Header() {
         <div className="container mx-auto flex justify-between items-center">
           <div></div>
           <div>
-            <Link to="/userHome" className="mr-4">Login</Link>
+            <Link to="/Login" className="mr-4">Login</Link>
             <Link to="/register">Register</Link>
           </div>
         </div>
@@ -51,9 +51,9 @@ function Header() {
       
       {/* Bottom blue stripe with navigation */}
       <div className="bg-[#0C2E8A] text-white py-2">
-        <div className="container mx-auto flex justify-center">
-          <Link to="/" className="px-4">Home</Link> 
-          <Link to="/cars" className="px-4">Cars</Link>
+        <div className="container mx-auto flex justify-end">
+          <Link to="/" className="px-6">Home</Link> 
+          <Link to="/cars" className="px-6">Cars</Link>
           <Link to="/blog" className="px-4">Blog</Link>
           <Link to="/about" className="px-4">About</Link>
           

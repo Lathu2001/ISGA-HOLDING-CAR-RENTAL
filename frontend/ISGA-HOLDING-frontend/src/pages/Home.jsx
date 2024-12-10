@@ -1,6 +1,7 @@
 import React from 'react';
-import Slider from "react-slick";
-import Footer from "../components/Footer/Footer";
+import Slider from 'react-slick';
+import Footer from '../components/Footer/Footer';
+import { Link } from "react-router-dom";
 
 // Import images directly
 import car1 from '../assets/Images/car1.jpg';
@@ -8,6 +9,7 @@ import car2 from '../assets/Images/car2.jpg';
 import car3 from '../assets/Images/car3.jpg';
 import car4 from '../assets/Images/car4.jpg';
 import car5 from '../assets/Images/car5.jpg';
+import car6 from '../assets/Images/car6.jpg'; // New image
 import wedding1 from '../assets/Images/wedding1.jpg';
 import wedding2 from '../assets/Images/wedding2.jpg';
 import wedding3 from '../assets/Images/wedding3.jpg';
@@ -39,6 +41,19 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center bg-[#f5f5f5] min-h-screen">
+      {/* Top Section with the new image */}
+      <div className="relative w-full">
+        <img src={car6} alt="ISGA Holdings" className="w-full h-auto object-cover" />
+        <div className="absolute bottom-0 left-0 w-full py-8 text-center text-black">
+          <p className="text-3xl mb-4">Drive Your Dreams with Us Reliable Vehicles for Every Journey</p>
+          <Link to="/Booking">
+            <button className="justify-center items-center px-6 py-2 text-4xl bg-blue-600 text-white font-semibold rounded-full">
+              Book Now
+            </button>
+          </Link>
+        </div>
+      </div>
+
       {/* Available Cars Section */}
       <div className="text-4xl font-bold m-8 text-[#1e3a8a]">Available Cars</div>
       <div className="w-full max-w-5xl px-4">
@@ -70,9 +85,6 @@ export default function Home() {
           ))}
         </Slider>
       </div>
-
-      {/* Footer */}
-      
     </div>
   );
 }
