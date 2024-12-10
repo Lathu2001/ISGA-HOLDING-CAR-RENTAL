@@ -18,9 +18,11 @@ const Footer = () => {
   const sectionStyle = {
     flex: '1 1 200px',
     margin: '10px',
+    textAlign: 'center'
   };
 
   const headingStyle = {
+    textAlign: 'center', // Justify alignment for the heading
     marginBottom: '10px',
     fontSize: '1.2em',
     fontWeight: 'bold',
@@ -33,8 +35,9 @@ const Footer = () => {
 
   const socialLinksContainerStyle = {
     display: 'flex',
-    justifyContent: 'flex-start',
+    justifyContent: 'center', // Center alignment for the container
     alignItems: 'center',
+    flexDirection: 'column'
   };
 
   const socialLinkStyle = {
@@ -57,8 +60,9 @@ const Footer = () => {
         {/* About Us Section */}
         <div style={sectionStyle}>
           <h3 style={headingStyle}>About Us</h3>
-          <p style={textStyle}>
-          add about us </p>
+          <p style={{textStyle, textAlign: 'justify'}}>Welcome to ISGA Holdings Pvt Ltd, your trusted partner in  car rental services.
+          Based in the heart of Nuwara Eliya, we specialize in offering a wide range of vehicles to cater to all your travel needs.With years of experience in the industry, we take pride in providing top-notch service .
+          At ISGA Holdings, customer satisfaction is our top priority. Whether you need a car for a few hours, a day, or an extended period, our flexible rental plans are designed to suit your schedule and budget.</p>
         </div>
 
         {/* Quick Links Section */}
@@ -83,7 +87,7 @@ const Footer = () => {
         <div style={sectionStyle}>
           <h3 style={headingStyle}>Follow Us</h3>
           <div style={socialLinksContainerStyle}>
-            <a
+            <a 
               href="https://www.facebook.com/Isgaholdings?mibextid=LQQJ4d"
               target="_blank"
               rel="noopener noreferrer"
