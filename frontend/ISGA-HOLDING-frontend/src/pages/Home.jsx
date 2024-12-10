@@ -40,19 +40,20 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center bg-[#f5f5f5] min-h-screen">
+    <div className="flex flex-col items-center bg-white min-h-screen">
       {/* Top Section with the new image */}
-      <div className="relative w-full">
-        <img src={car6} alt="ISGA Holdings" className="w-full h-auto object-cover" />
-        <div className="absolute bottom-0 left-0 w-full py-8 text-center text-black">
-          <p className="text-3xl mb-4">Drive Your Dreams with Us Reliable Vehicles for Every Journey</p>
+      <div className="w-full flex justify-center bg-[#0779ec]">
+        <img src={car6} alt="ISGA Holdings" className="max-w-full max-h-[90vh] object-contain" />
+      </div>
+        <div className="w-full py-8 text-center text-black bg-white">
+          <p className="text-3xl mb-4 ">Drive Your Dreams with Us Reliable Vehicles for Every Journey</p>
           <Link to="/Booking">
-            <button className="justify-center items-center px-6 py-2 text-4xl bg-blue-600 text-white font-semibold rounded-full">
+            <button className="justify-center items-center px-6 py-2 text-4xl bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-800">
               Book Now
             </button>
           </Link>
         </div>
-      </div>
+    
 
       {/* Available Cars Section */}
       <div className="text-4xl font-bold m-8 text-[#1e3a8a]">Available Cars</div>
