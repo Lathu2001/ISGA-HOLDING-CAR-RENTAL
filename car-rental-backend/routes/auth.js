@@ -1,7 +1,11 @@
-const express = require('express');
-const router = express.Router();
-const { registerUser } = require('../controllers/authController');  // Removed loginUser
+// routes/auth.js
 
-router.post('/register', registerUser);  // Removed /login route
+const express = require('express');
+const { registerUser } = require('../controllers/authController');  // Correct the import
+
+const router = express.Router();
+
+// Register route
+router.post('/register', registerUser);  // Use the correct function name
 
 module.exports = router;

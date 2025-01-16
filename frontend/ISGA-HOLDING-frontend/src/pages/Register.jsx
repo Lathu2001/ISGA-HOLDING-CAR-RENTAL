@@ -1,9 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-import{useNavigate} from 'react-router-dom';
-import Footer from "../components/Footer/Footer";
+import { useNavigate } from 'react-router-dom';
 
-export default function register() {
+export default function Register() {
   const [formData, setFormData] = useState({
     name: "",
     username: "",
@@ -22,22 +21,45 @@ export default function register() {
   };
 
   const handleRegistration = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent form from refreshing the page
 
     try {
-      const response = await axios.post("http://localhost:8080/api/v1/user/", formData);
-      console.log(response);
-      alert('Registration was successful!');
+      // Sending the formData to the backend (registration API endpoint)
+      const response = await axios.post("http://localhost:5000/api/auth/register", formData, {
+        headers: {
+          'Content-Type': 'application/json',  // Ensure Content-Type is set as JSON
+        },
+      });
+
+      console.log(response.status); // Log the HTTP status code
+      console.log(response.data);   // Log the response data (message)
+
+      // Show success message
+      alert(response.data.message);
+
+      // If registration is successful, navigate to the sign-in page
       navigate('/signin');
-      // Handle success (e.g., show a success message or redirect to login page)
+
     } catch (error) {
-      alert('Registration failed. Please try again.');
-      // Handle registration error (e.g., show an error message)
+      // Handle errors such as network issues or validation errors from backend
+      if (error.response) {
+        // If there's a response error (from backend)
+        console.error("Backend error: ", error.response.data);
+        alert(error.response.data.message || 'Registration failed. Please try again.');
+      } else if (error.request) {
+        // If the request was made but no response was received
+        console.error("Network error: ", error.request);
+        alert('Network error. Please check your connection and try again.');
+      } else {
+        // For other errors like setup issues
+        console.error("Error during registration: ", error.message);
+        alert('Registration failed. Please try again.');
+      }
     }
   };
+
   return (
     <div className="flex flex-col m-20 mt-2 items-center bg-white rounded">
-      {/* bg-[#eff6d3] */}
       <div className="text-2xl font-bold m-5 text-black">Register</div>
       <div className="flex flex-col items-center">
         <form
@@ -102,14 +124,12 @@ export default function register() {
           />
           <button
             type="submit"
-            className=" bg-black  text-white hover:underline font-bold py-2 px-4 rounded-lg w-80"
+            className="bg-black text-white hover:underline font-bold py-2 px-4 rounded-lg w-80"
           >
             Register
           </button>
         </form>
-        
       </div>
-      
     </div>
   );
 }
