@@ -10,6 +10,7 @@ export default function Register() {
     city: "",
     address: "",
     phoneNumber: "",
+    NICNumber: "",
     password: "",
   });
 
@@ -59,18 +60,24 @@ export default function Register() {
   };
 
   return (
-    <div className="flex flex-col m-20 mt-2 items-center bg-white rounded">
-      <div className="text-2xl font-bold m-5 text-black">Register</div>
-      <div className="flex flex-col items-center">
+    <div
+      className="flex items-center justify-center min-h-screen bg-cover bg-center"
+      style={{
+        backgroundImage: "url('https://img.freepik.com/free-vector/car-led-lights-realistic-composition-with-dark-silhouette-automobile-with-dimmed-headlights-shadows-illustration_1284-28532.jpg?ga=GA1.1.1088011668.1713541224&semt=ais_hybrid.jpg')",
+        backgroundColor: "#fafafa",
+        backgroundBlendMode: "darken",
+      }}
+    >
+      <div className="flex flex-col items-center w-96 p-5 bg-gradient-to-b from-[#000000ee] to-[#666666a] rounded-2xl shadow-lg">
         <form
-          className="flex flex-col items-center w-96 p-3 bg-gradient-to-b from-[#431261] to-[#890487] rounded-2xl"
+          className="flex flex-col items-center w-full"
           onSubmit={handleRegistration}
         >
           <input
             name="name"
             value={formData.name}
             onChange={handleInputChange}
-            className="border-2 border-black rounded-lg m-2 p-2 w-full bg-[#ddbdf2] text-black placeholder:text-slate-500"
+            className="border-2 border-gray-400 rounded-lg m-2 p-2 w-full bg-[#f5f5f5] text-black placeholder:text-slate-500"
             type="text"
             placeholder="Name"
           />
@@ -78,7 +85,7 @@ export default function Register() {
             name="username"
             value={formData.username}
             onChange={handleInputChange}
-            className="border-2 border-black rounded-lg m-2 p-2 w-full bg-[#ddbdf2] text-black placeholder:text-slate-500"
+            className="border-2 border-gray-400 rounded-lg m-2 p-2 w-full bg-[#f5f5f5] text-black placeholder:text-slate-500"
             type="text"
             placeholder="Username"
           />
@@ -86,7 +93,7 @@ export default function Register() {
             name="email"
             value={formData.email}
             onChange={handleInputChange}
-            className="border-2 border-black rounded-lg m-2 p-2 w-full bg-[#ddbdf2] text-black placeholder:text-slate-500"
+            className="border-2 border-gray-400 rounded-lg m-2 p-2 w-full bg-[#f5f5f5] text-black placeholder:text-slate-500"
             type="text"
             placeholder="Email"
           />
@@ -94,7 +101,7 @@ export default function Register() {
             name="city"
             value={formData.city}
             onChange={handleInputChange}
-            className="border-2 border-black rounded-lg m-2 p-2 w-full bg-[#ddbdf2] text-black placeholder:text-slate-500"
+            className="border-2 border-gray-400 rounded-lg m-2 p-2 w-full bg-[#f5f5f5] text-black placeholder:text-slate-500"
             type="text"
             placeholder="City"
           />
@@ -102,7 +109,7 @@ export default function Register() {
             name="address"
             value={formData.address}
             onChange={handleInputChange}
-            className="border-2 border-black rounded-lg m-2 p-2 w-full bg-[#ddbdf2] text-black placeholder:text-slate-500"
+            className="border-2 border-gray-400 rounded-lg m-2 p-2 w-full bg-[#f5f5f5] text-black placeholder:text-slate-500"
             type="text"
             placeholder="Address"
           />
@@ -110,21 +117,29 @@ export default function Register() {
             name="phoneNumber"
             value={formData.phoneNumber}
             onChange={handleInputChange}
-            className="border-2 border-black rounded-lg m-2 p-2 w-full bg-[#ddbdf2] text-black placeholder:text-slate-500"
+            className="border-2 border-gray-400 rounded-lg m-2 p-2 w-full bg-[#f5f5f5] text-black placeholder:text-slate-500"
             type="text"
             placeholder="Phone Number"
+          />
+          <input
+            name="NIC Number"
+            value={formData.NICNumber}
+            onChange={handleInputChange}
+            className="border-2 border-gray-400 rounded-lg m-2 p-2 w-full bg-[#f5f5f5] text-black placeholder:text-slate-500"
+            type="text"
+            placeholder="NIC Number"
           />
           <input
             name="password"
             value={formData.password}
             onChange={handleInputChange}
-            className="border-2 border-black rounded-lg m-2 p-2 w-full bg-[#ddbdf2] text-black placeholder:text-slate-500"
+            className="border-2 border-gray-400 rounded-lg m-2 p-2 w-full bg-[#f5f5f5] text-black placeholder:text-slate-500"
             type="password"
             placeholder="Password"
           />
           <button
             type="submit"
-            className="bg-black text-white hover:underline font-bold py-2 px-4 rounded-lg w-80"
+            className="bg-[#004080] text-white hover:underline font-bold py-2 px-4 rounded-lg w-80 mt-2"
           >
             Register
           </button>
@@ -133,3 +148,4 @@ export default function Register() {
     </div>
   );
 }
+
