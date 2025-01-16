@@ -1,24 +1,22 @@
-// server.js
 const express = require('express');
-const dotenv = require('dotenv');
-const connectDB = require('./config/db');
-
-dotenv.config(); // Load environment variables
+require('dotenv').config();  // Load environment variables
+const connectDB = require('./config/db');  // MongoDB connection function
 
 const app = express();
-app.use(express.json()); // Parse JSON request bodies
 
-// Connect to MongoDB
-connectDB();
+// Middleware to parse JSON
+app.use(express.json());
 
-// Import Routes
+// Add a simple GET route to test
+app.get('/', (req, res) => {
+    res.send('API is working!');
+});
+
+// Import and use routes
 const authRoutes = require('./routes/auth');
-const carRoutes = require('./routes/car');
+app.use('/api/auth', authRoutes);  // Prefix the auth routes with /api/auth
 
-// Use Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/cars', carRoutes);
+connectDB();  // Connect to MongoDB
 
-// Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

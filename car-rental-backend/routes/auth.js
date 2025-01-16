@@ -1,11 +1,7 @@
 const express = require('express');
-const { registerUser, loginUser } = require('../controllers/authController');
 const router = express.Router();
+const { registerUser } = require('../controllers/authController');  // Removed loginUser
 
-// Register a new user
-router.post('/register', registerUser);
-
-// Login a user
-router.post('/login', loginUser);
+router.post('/register', registerUser);  // Removed /login route
 
 module.exports = router;
