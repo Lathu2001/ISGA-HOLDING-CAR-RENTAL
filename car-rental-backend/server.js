@@ -3,32 +3,30 @@ const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 
-
-
-dotenv.config(); // Load environment variables
+// Load environment variables
+dotenv.config();
 
 const app = express();
 
-// Allow cross-origin requests
+// Middleware for CORS
 app.use(cors({
-    origin: 'http://localhost:5173', // The frontend URL (replace if different)
+    origin: 'http://localhost:5173', // Adjust this if your frontend is hosted somewhere else
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }));
 
-app.use(express.json()); // Parse JSON request bodies
+// Parse JSON body
+app.use(express.json());
 
-// Connect to MongoDB
+// Connect to the database
 connectDB();
 
-// Import Routes
-const authRoutes = require('./routes/auth');
-const carRoutes = require('./routes/car');
+// Import routes
+const authRoutes = require('./routes/auth');  // Ensure correct path
 
-// Use Routes
+// Use routes
 app.use('/api/auth', authRoutes);
-app.use('/api/cars', carRoutes);
 
-// Start the server
+// Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
