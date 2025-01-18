@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
     const [formData, setFormData] = useState({
-        identifier: "",  // This will be email or username
+        identifier: "",
         password: "",
     });
 
@@ -19,40 +19,52 @@ export default function Login() {
         e.preventDefault();
         try {
             const response = await axios.post("http://localhost:5000/api/auth/login", formData);
-            alert("Login successful!");
-            localStorage.setItem("token", response.data.token); // Store the token in local storage
-            navigate('/dashboard'); // Redirect to the dashboard after successful login
+            alert("Welcome to the Vehicle Rental System!");
+            localStorage.setItem("token", response.data.token);
+            navigate('/dashboard');
         } catch (error) {
-            alert('Login failed. Please check your credentials.');
+            alert('Login failed. Please check your email or password.');
         }
     };
 
     return (
-        <div className="flex flex-col items-center m-20 bg-white rounded p-5">
-            <div className="text-2xl font-bold mb-5">Sign In</div>
-            <form onSubmit={handleSignIn} className="flex flex-col space-y-4">
-                <input
-                    name="identifier"
-                    value={formData.identifier}
-                    onChange={handleInputChange}
-                    placeholder="Enter Email or Username"
-                    className="border-2 p-2 rounded"
-                />
-                <input
-                    name="password"
-                    value={formData.password}
-                    onChange={handleInputChange}
-                    type="password"
-                    placeholder="Enter Password"
-                    className="border-2 p-2 rounded"
-                />
-                <button
-                    type="submit"
-                    className="bg-blue-500 text-white py-2 px-4 rounded"
-                >
-                    Sign In
-                </button>
-            </form>
+        <div
+            className="flex items-center justify-center h-screen bg-cover bg-center"
+            style={{ backgroundImage: "url('https://www.shutterstock.com/image-photo/red-car-driving-panoramic-road-600nw-2461512533.jpg')" }}
+        >
+            <div className="bg-white rounded shadow-lg p-6 w-96">
+                <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
+                <form onSubmit={handleSignIn} className="space-y-4">
+                    <div>
+                        <input
+                            name="identifier"
+                            value={formData.identifier}
+                            onChange={handleInputChange}
+                            placeholder="Email"
+                            className="border-2 w-full p-2 rounded"
+                        />
+                    </div>
+                    <div>
+                        <input
+                            name="password"
+                            value={formData.password}
+                            onChange={handleInputChange}
+                            type="password"
+                            placeholder="Password"
+                            className="border-2 w-full p-2 rounded"
+                        />
+                    </div>
+                    <button
+                        type="submit"
+                        className="bg-blue-500 text-white w-full py-2 px-4 rounded hover:bg-blue-600"
+                    >
+                        Login
+                    </button>
+                </form>
+                <div className="mt-4 text-sm text-center text-gray-600">
+                    Don’t have an account? <a href="/register" className="text-blue-500 underline">Register</a>
+                </div>
+            </div>
         </div>
     );
 }
