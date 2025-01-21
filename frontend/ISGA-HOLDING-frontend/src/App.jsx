@@ -10,6 +10,8 @@ import Login from "./pages/Login.jsx"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./components/Footer/Footer.jsx";
 import Book from "./pages/Book.jsx";
+import AdminRegister from "./pages/AdminRegister.jsx";
+import AdminLogin from "./pages/AdminLogin.jsx";
 
 
 
@@ -23,6 +25,9 @@ function App() {
           <Route path="/register" element={<Register/>} />
           <Route path="/Login" element={<Login/>}/>
           <Route path="/Booking" element={<Book/>}/>
+          <Route path="/admin-register" element= {<AdminRegister/>}/>
+          <Route path="/admin-login" element= {<AdminLogin/>}/>
+
         </Routes>
         <Footer/>
         

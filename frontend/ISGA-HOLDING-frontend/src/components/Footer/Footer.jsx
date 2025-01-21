@@ -7,6 +7,7 @@ const Footer = () => {
     color: '#fff',
     padding: '40px 20px',
     textAlign: 'left',
+    marginTop: '10px',
   };
 
   const footerContentStyle = {
