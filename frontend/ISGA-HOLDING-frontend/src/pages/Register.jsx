@@ -80,7 +80,6 @@ export default function Register() {
       });
 
       alert(response.data.message);
-      navigate("/signin");
     } catch (error) {
       if (error.response) {
         alert(error.response.data.message || "Registration failed. Please try again.");

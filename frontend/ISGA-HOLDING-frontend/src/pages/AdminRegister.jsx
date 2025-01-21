@@ -22,7 +22,6 @@ const AdminRegister = () => {
         try {
             const response = await axios.post('http://localhost:5000/api/admin/register', formData);
             alert(response.data.message);
-            navigate('/admin-login');
         } catch (error) {
             alert(error.response.data.message || 'Registration failed');
         }
