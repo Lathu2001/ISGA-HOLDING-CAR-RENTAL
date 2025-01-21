@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
+
 export default function Login() {
     const [formData, setFormData] = useState({
         identifier: "",
@@ -62,7 +63,8 @@ export default function Login() {
                     </button>
                 </form>
                 <div className="mt-4 text-sm text-center text-gray-600">
-                    Don’t have an account? <a href="/register" className="text-blue-500 underline">Register</a>
+                   <p>Don’t have an account? <a href="/register" className="text-blue-500 underline">Register</a></p> 
+                   <p> Login as Admin <a href="/AdminLogin" className="text-blue-500 underline">Login</a></p>
                 </div>
             </div>
         </div>
