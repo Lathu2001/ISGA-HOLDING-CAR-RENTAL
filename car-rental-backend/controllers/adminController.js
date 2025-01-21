@@ -1,6 +1,6 @@
 const Admin = require('../models/Admin');
 const jwt = require('jsonwebtoken');
-const nodemailer = require('nodemailer');
+
 
 const ADMIN_CODE = 'isgaareyoufree'; // Define the admin code
 
@@ -53,32 +53,4 @@ exports.loginAdmin = async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: 'Server error', error });
     }
-};
-
-
-// Create a transporter for sending emails
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: process.env.EMAIL_USER, // Your email address from the environment
-        pass: process.env.EMAIL_PASS, // Your email password from the environment
-    },
-});
-
-// Function to send confirmation email
-const sendConfirmationEmail = (email, name) => {
-    const mailOptions = {
-        from: 'isgaholding@gmail.com',
-        to: email,
-        subject: 'Registration Successful - ISGA Holding',
-        text: `Dear ${name},\n\nThank you for registering on the ISGA Holding platform.\n\nWe are delighted to have you as part of our community.\n\nBest regards,\nISGA Holding Team`,
-    };
-
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            console.error('Error sending email:', error);
-        } else {
-            console.log('Email sent:', info.response);
-        }
-    });
 };

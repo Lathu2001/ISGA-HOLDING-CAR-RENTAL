@@ -199,6 +199,9 @@ export default function Register() {
             Register
           </button>
         </form>
+        <div className="mt-4 text-sm text-center text-gray-600">
+          Register as Admin  <a href="/AdminRegister" className="text-blue-500 underline">Register</a>
+        </div>
       </div>
     </div>
   );
